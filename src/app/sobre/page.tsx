@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { BlinkingFace } from "@/components/blinking-face";
 import { profile } from "@/data/profile";
 import { publicAsset } from "@/lib/paths";
 
@@ -14,7 +15,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <section className="about-page" aria-labelledby="about-title">
-      <p className="about-kicker">SOBRE MIM</p>
+      <p className="about-kicker">
+        SOBRE MIM
+        <BlinkingFace expression="grin" />
+      </p>
       <h1 id="about-title">Tecnologia é feita por pessoas.</h1>
       <p className="about-subtitle">Um pouco da minha história</p>
 

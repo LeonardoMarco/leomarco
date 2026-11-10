@@ -61,6 +61,58 @@ button {
   flex-direction: column;
   min-height: 100svh;
 }
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  animation: page-loader-fade 0.33s ease-in-out 0.72s forwards;
+}
+.page-loader-mark {
+  width: 94px;
+  height: 94px;
+  color: var(--ink);
+}
+.page-loader-track,
+.page-loader-progress {
+  stroke-width: 2;
+}
+.page-loader-track {
+  stroke: var(--line);
+}
+.page-loader-progress {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-dasharray: 277;
+  stroke-dashoffset: 277;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  animation: page-loader-draw 0.72s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
+}
+.page-loader--navigation {
+  animation-duration: 0.3s;
+  animation-delay: 0.25s;
+}
+.page-loader--navigation .page-loader-progress {
+  animation-duration: 0.25s;
+}
+@keyframes page-loader-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes page-loader-fade {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .site-main {
   display: flex;
   flex: 1;
@@ -118,9 +170,47 @@ button {
   padding-block: 105px 125px;
 }
 .home-greeting {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   margin: 0 0 24px;
   color: var(--accent);
   font: 12px var(--mono);
+}
+.blink-face {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: blink-face-enter 0.4s ease-out 2s forwards;
+}
+.blink-face-eyes {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: blink-face-blink 4.2s ease-in-out 2.6s infinite;
+}
+@keyframes blink-face-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes blink-face-blink {
+  0%,
+  6%,
+  12%,
+  100% {
+    transform: scaleY(1);
+  }
+  9% {
+    transform: scaleY(0);
+  }
 }
 .home-hero h1 {
   margin: 0;
@@ -164,6 +254,9 @@ button {
   padding-block: 105px 135px;
 }
 .about-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   margin: 0 0 24px;
   color: var(--accent);
   font: 12px var(--mono);
@@ -768,6 +861,12 @@ button {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .page-loader {
+    display: none;
+  }
+  .blink-face-eyes {
+    animation: none;
+  }
   html {
     scroll-behavior: auto;
   }

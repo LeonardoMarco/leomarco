@@ -1,10 +1,14 @@
 import Link from "next/link";
+import { BlinkingFace } from "@/components/blinking-face";
 import { profile } from "@/data/profile";
 
 export default function Home() {
   return (
     <section className="home-hero" aria-labelledby="home-title">
-      <p className="home-greeting">Olá, prazer!</p>
+      <p className="home-greeting">
+        Olá, prazer!
+        <BlinkingFace expression="smile" />
+      </p>
       <h1 id="home-title">Leonardo Marco</h1>
       <p className="home-role">
         {profile.role} no {profile.company}
@@ -12,13 +16,15 @@ export default function Home() {
 
       <div className="home-copy">
         <p className="home-lead">
-          Construo software e ajudo pessoas a construírem juntas.
+          Gosto de entender como as coisas funcionam, resolver problemas e
+          compartilhar o que aprendo.
         </p>
         <p>
-          Minha trajetória reúne desenvolvimento de software, colaboração e
-          liderança técnica. Você pode conhecer um pouco mais{" "}
-          <Link href="/sobre">sobre mim</Link> e explorar minha{" "}
-          <Link href="/trajetoria">trajetória</Link>.
+          Ao longo da minha carreira, desenvolvi produtos, liderei times e
+          ensinei programação. Cada experiência trouxe novos desafios e
+          aprendizados. Por aqui, você pode conhecer mais{" "}
+          <Link href="/sobre">sobre mim</Link> e os caminhos que percorri na
+          minha <Link href="/trajetoria">trajetória</Link>.
         </p>
       </div>
     </section>

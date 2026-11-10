@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101011"/>
+  <text x="80" y="120" fill="#ff7c68" font-family="Arial, sans-serif" font-size="24" letter-spacing="3">ENGENHEIRO DE SOFTWARE</text>
+  <text x="77" y="306" fill="#f5f2ed" font-family="Arial, sans-serif" font-size="120" font-weight="700" letter-spacing="-5">Leonardo</text>
+  <text x="77" y="438" fill="#f5f2ed" font-family="Arial, sans-serif" font-size="120" font-weight="700" letter-spacing="-5">Marco<tspan fill="#ff7c68">.</tspan></text>
+  <path d="M80 516H1120" stroke="#383739"/>
+  <text x="80" y="566" fill="#aaa6a1" font-family="Arial, sans-serif" font-size="22">leomarco.dev</text>
+</svg>
